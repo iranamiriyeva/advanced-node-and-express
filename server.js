@@ -6,6 +6,7 @@ const fccTesting = require('./freeCodeCamp/fcctesting.js');
 
 const app = express();
 
+//Solution1: Setup a Template Engine
 app.set('view engine', 'pug');
 app.set('views', './views/pug');
 
@@ -15,7 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.route('/').get((req, res) => {
-  res.render('index')
+//Solution2: Use a Template Engine's Powers
+  res.render('index', { title: 'Hello', message: 'Please log in' });
 });
 
 const PORT = process.env.PORT || 3000;
